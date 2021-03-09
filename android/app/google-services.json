@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "346377668566",
+    "project_id": "savings-9311b",
+    "storage_bucket": "savings-9311b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346377668566:android:73ac637e47dc27a4ca0677",
+        "android_client_info": {
+          "package_name": "art.jonaserh.savings.savings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346377668566-u6ff793stgt310d32thong3ldbirnhgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxatwhCg1vO2ne4JT88Mzf9gBBQauXFWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346377668566-u6ff793stgt310d32thong3ldbirnhgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
