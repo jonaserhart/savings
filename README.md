@@ -11,7 +11,7 @@ Requirements:
   - XCode
   - iOS Simulator or connected iPhone/iPad
 
-just run the following command in your 
+just run the following command in your terminal
 ```
 $ flutter run
 ```
