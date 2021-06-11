@@ -20,7 +20,7 @@ class _SavingsChartState extends State<SavingsChart> {
     if (dateAsDouble == null)
       return false;
     if (
-    DateTime.now().add(Duration(days: -(index + 1))).millisecondsSinceEpoch < dateAsDouble
+    new DateTime(actualDate.year, actualDate.month, actualDate.day - (index + 1), 23, 59, 59).millisecondsSinceEpoch < dateAsDouble
         && dateAsDouble < new DateTime(actualDate.year, actualDate.month, actualDate.day - index, 23, 59, 59).millisecondsSinceEpoch
     ) {
       return true;
@@ -46,7 +46,6 @@ class _SavingsChartState extends State<SavingsChart> {
         _amounts = amountList;
         _maxAmount = maxA + 10;
       });
-      print (_maxAmount);
 
     });
   }
@@ -126,42 +125,42 @@ class _SavingsChartState extends State<SavingsChart> {
                   BarChartGroupData(
                     x: (DateTime.now().weekday - 6) % 7,
                     barRods: [
-                      BarChartRodData(y: _amounts[5], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y: _amounts[5].isNegative ? 0 : _amounts[5], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),
                   BarChartGroupData(
                     x: (DateTime.now().weekday - 5) % 7,
                     barRods: [
-                      BarChartRodData(y: _amounts[4], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y: _amounts[4].isNegative ? 0 : _amounts[4], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),
                   BarChartGroupData(
                     x: (DateTime.now().weekday - 4) % 7,
                     barRods: [
-                      BarChartRodData(y:  _amounts[3], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y:  _amounts[3].isNegative ? 0 : _amounts[3], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),
                   BarChartGroupData(
                     x: (DateTime.now().weekday - 3) % 7,
                     barRods: [
-                      BarChartRodData(y: _amounts[2], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y: _amounts[2].isNegative ? 0 : _amounts[2], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),
                   BarChartGroupData(
                     x: (DateTime.now().weekday - 2) % 7,
                     barRods: [
-                      BarChartRodData(y: _amounts[1], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y: _amounts[1].isNegative ? 0 : _amounts[1], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),
                   BarChartGroupData(
                     x: DateTime.now().weekday - 1,
                     barRods: [
-                      BarChartRodData(y: _amounts[0], colors: [Colors.lightBlueAccent, Colors.greenAccent])
+                      BarChartRodData(y: _amounts[0].isNegative ? 0 : _amounts[0], colors: [Colors.lightBlueAccent, Colors.greenAccent])
                     ],
                     showingTooltipIndicators: [0],
                   ),

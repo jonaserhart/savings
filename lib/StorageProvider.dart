@@ -13,4 +13,5 @@ abstract class StorageProvider {
   Future<void> setDisplayName(String name);
   Future<String> getDisplayName();
   Future<void> initialize();
+  Future<void> removeSaving(Saving saving);
 }

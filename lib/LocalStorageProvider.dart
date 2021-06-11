@@ -129,7 +129,7 @@ class LocalStorageProvider implements StorageProvider {
   Future<Iterable<Saving>> getLastWeeksSavings() async {
     var db = await database;
     var dateNow = DateTime.now();
-    var dateTimeFiveDaysAgo = DateTime.now().add(Duration(days: -5, hours: dateNow.hour, minutes: dateNow.minute))
+    var dateTimeFiveDaysAgo = DateTime.now().add(Duration(days: -5, hours: -dateNow.hour, minutes: -dateNow.minute))
       .millisecondsSinceEpoch.toString();
     var maps = await db.query(
         tableSavings,
@@ -200,5 +200,11 @@ class LocalStorageProvider implements StorageProvider {
       return maps.first[displayNameColumn];
     }
     return '';
+  }
+
+  @override
+  Future<void> removeSaving(Saving saving) async {
+    var db = await database;
+    await db.delete(tableSavings, where: '$dateColumn like ?', whereArgs: [saving.date]);
   }
 }

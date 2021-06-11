@@ -122,5 +122,11 @@ class FirebaseStorageProvider implements StorageProvider{
   Future<String> getDisplayName() async {
     return FirebaseAuth.instance.currentUser?.displayName ?? '';
   }
+
+  @override
+  Future<void> removeSaving(Saving saving) {
+    // TODO: implement removeSaving
+    throw UnimplementedError();
+  }
   
 }

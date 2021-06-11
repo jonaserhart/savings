@@ -6,6 +6,7 @@ import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:savings/Storage.dart';
 import 'package:savings/auth/profile.dart';
 import 'package:savings/dashboard/dashboard_main.dart';
+import 'package:savings/goals/goals.dart';
 import 'package:savings/manage/manage_savings.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
@@ -61,27 +62,11 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBar extends State<BottomNavBar> {
   int _selectedIndex = 0;
-  static double _titleSize = 22;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static List<Widget> _titleOptions = <Widget>[
-    Text(
-      'Dashboard',
-      style: TextStyle(fontSize: _titleSize),
-    ),
-    Text(
-      'Manage',
-      style: TextStyle(fontSize: _titleSize),
-    ),
-    Text(
-      'Profile',
-      style: TextStyle(fontSize: _titleSize),
-    ),
-  ];
   static List<Widget> _widgetOptions = <Widget>[
     DashboardMain(),
     ManageSavingsPage(),
+    Goals(),
     ProfilePage(),
   ];
 
@@ -108,12 +93,17 @@ class _BottomNavBar extends State<BottomNavBar> {
             label: 'Manage',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.flag),
+            label: 'Goals',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Preferences',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).accentColor,
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );

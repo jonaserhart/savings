@@ -12,12 +12,10 @@ class _AddSavingModalState extends State<AddSavingModal> {
   var _savingController = TextEditingController();
   var _descriptionController = TextEditingController();
 
-  void saveChanges() async {}
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Create saving'),
+      title: const Text('New entry'),
       content: new Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,6 +71,9 @@ class _AddSavingModalState extends State<AddSavingModal> {
           onPressed: () {
             if (_savingFormKey.currentState.validate()) {
               var value = double.tryParse(_savingController.text);
+              if (value == null) {
+                value = double.tryParse(_savingController.text.replaceAll(',', '.'));
+              }
               //close modal
               Navigator.of(context).pop();
               widget.onSavingAdded(value ?? 0, _descriptionController.text);

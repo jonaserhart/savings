@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:savings/Storage.dart';
+import 'package:savings/dashboard/goals_summary.dart';
 import 'package:savings/dashboard/savings_chart.dart';
 import 'package:savings/dashboard/savings_sum.dart';
 
@@ -45,6 +46,10 @@ class _DashboardMainState extends State<DashboardMain> {
               Padding(
                 padding: EdgeInsets.only(top: 20, right: 30),
                 child: SavingsChart(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 20, right: 30, bottom: 40),
+                child: GoalsSummary(),
               ),
             ],
           );
